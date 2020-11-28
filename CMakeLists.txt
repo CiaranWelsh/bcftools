@@ -185,87 +185,103 @@ configure_file(
 #   Build
 #
 
+#main.o vcfindex.o tabix.o \
+#           vcfstats.o vcfisec.o vcfmerge.o vcfquery.o vcffilter.o filter.o vcfsom.o \
+#           vcfnorm.o vcfgtcheck.o vcfview.o vcfannotate.o vcfroh.o vcfconcat.o \
+#           vcfcall.o mcall.o vcmp.o gvcf.o reheader.o convert.o vcfconvert.o tsv2vcf.o \
+#           vcfcnv.o HMM.o consensus.o ploidy.o bin.o hclust.o version.o \
+#           regidx.o smpl_ilist.o csq.o vcfbuf.o \
+#           mpileup.o bam2bcf.o bam2bcf_indel.o bam_sample.o \
+#           vcfsort.o cols.o extsort.o \
+#           ccall.o em.o prob1.o kmin.o # the original samtools calling
+
+
 set(
         BCF_SOURCES
-        ${CMAKE_CURRENT_SOURCE_DIR}/HMM.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/bam2bcf.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/bam_sample.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/bcftools.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/bin.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/call.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/cols.h
-        ${CMAKE_CURRENT_BINARY_DIR}/config.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/convert.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/extsort.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/filter.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/gvcf.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/hclust.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/hex.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/khash_str2str.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/kheap.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/kmin.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/mw.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/peakfit.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/ploidy.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/prob1.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/rbuf.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/regidx.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/smpl_ilist.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/tsv2vcf.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/variantkey.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfbuf.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcmp.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/version.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/HMM.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/bam2bcf.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/bam2bcf_indel.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/bam_sample.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/bin.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/ccall.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/cols.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/consensus.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/convert.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/csq.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/em.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/extsort.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/filter.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/gvcf.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/hclust.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/kmin.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/main.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/mcall.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/mpileup.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/peakfit.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/ploidy.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/polysomy.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/prob1.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/regidx.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/reheader.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/smpl_ilist.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/tabix.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/tsv2vcf.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfannotate.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfbuf.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfcall.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfcnv.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfconcat.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfconvert.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcffilter.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfgtcheck.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfindex.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfstats.c
         ${CMAKE_CURRENT_SOURCE_DIR}/vcfisec.c
         ${CMAKE_CURRENT_SOURCE_DIR}/vcfmerge.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfnorm.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfplugin.c
         ${CMAKE_CURRENT_SOURCE_DIR}/vcfquery.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfroh.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcffilter.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/filter.h
         ${CMAKE_CURRENT_SOURCE_DIR}/vcfsom.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfsort.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/vcfstats.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfnorm.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfgtcheck.c
         ${CMAKE_CURRENT_SOURCE_DIR}/vcfview.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfannotate.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfroh.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfconcat.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfcall.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/mcall.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcmp.h
         ${CMAKE_CURRENT_SOURCE_DIR}/vcmp.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/gvcf.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/gvcf.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/reheader.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/convert.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/convert.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfconvert.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/tsv2vcf.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/tsv2vcf.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfcnv.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/HMM.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/HMM.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/consensus.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/ploidy.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/ploidy.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/bin.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/bin.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/hclust.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/hclust.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/version.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/regidx.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/regidx.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/smpl_ilist.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/smpl_ilist.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/csq.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfbuf.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfbuf.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/mpileup.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/bam2bcf.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/bam2bcf_indel.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/bam2bcf.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/bam_sample.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/bam_sample.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfsort.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/cols.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/cols.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/extsort.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/hex.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/ccall.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/em.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/prob1.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/prob1.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/kmin.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/kmin.c
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/main.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/vcfindex.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/tabix.c
+
+
+        ${CMAKE_CURRENT_SOURCE_DIR}/bcftools.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/call.h
+        ${CMAKE_CURRENT_BINARY_DIR}/config.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/khash_str2str.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/kheap.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/mw.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/peakfit.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/rbuf.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/variantkey.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/filter.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/peakfit.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/polysomy.c
         #        ${CMAKE_CURRENT_SOURCE_DIR}/version.c
 )
+
+if (ENABLE_BCF_PLUGINS)
+    set(BCF_SOURCES ${BCF_SOURCES} ${CMAKE_CURRENT_SOURCE_DIR}/vcfplugin.c)
+endif ()
 
 set(
         INCLUDE_DIRECTORIES
@@ -305,3 +321,29 @@ generate_export_header(bcftools)
 ##########################################################################################
 #       Executables
 #
+
+# build the bcftools executable
+
+#PROGRAMS = bcftools
+
+
+set(
+        MISC_SCRIPTS
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/color-chrs.pl"
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/gff2gff.py"
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/guess-ploidy.py"
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/plot-vcfstats"
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/plot-roh.py"
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/run-roh.pl"
+        "${CMAKE_CURRENT_SOURCE_DIR}/misc/vcfutils.pl"
+)
+
+
+##########################################################################################
+#       Tests
+#
+add_subdirectory(test)
+
+
+
+

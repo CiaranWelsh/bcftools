@@ -1,0 +1,1 @@
+#TEST_PROGRAMS = test/test-rbuf test/test-regidx
