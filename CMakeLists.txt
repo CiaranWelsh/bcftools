@@ -281,12 +281,14 @@ add_library(bcftools-static STATIC ${BCF_SOURCES})
 target_include_directories(bcftools-static PUBLIC ${INCLUDE_DIRECTORIES})
 target_link_libraries(bcftools-static PUBLIC ${LINK_TARGETS})
 target_compile_definitions(bcftools-static PUBLIC BCFTOOLS_STATIC_DEFINE)
+set_target_properties(bcftools-static PROPERTIES LINKER_LANGUAGE CXX)
 
 # build static library
 add_library(bcftools STATIC ${BCF_SOURCES})
 target_include_directories(bcftools PUBLIC ${INCLUDE_DIRECTORIES})
 target_link_libraries(bcftools PUBLIC ${LINK_TARGETS})
 target_compile_definitions(bcftools PUBLIC BCFTOOLS_EXPORTS)
+set_target_properties(bcftools PROPERTIES LINKER_LANGUAGE CXX)
 
 
 ##########################################################################################
