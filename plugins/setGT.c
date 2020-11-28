@@ -28,7 +28,8 @@ DEALINGS IN THE SOFTWARE.  */
 #include <htslib/vcfutils.h>
 #include <htslib/kfunc.h>
 #include <inttypes.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <ctype.h>
 #include "bcftools.h"
 #include "filter.h"

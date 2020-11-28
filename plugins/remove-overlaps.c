@@ -24,10 +24,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
-#include <getopt.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
+#include "linux2win/linux2win_getopt.h"
+
 #include <stdarg.h>
-#include <unistd.h>
+#include "linux2win/linux2win_unistd.h"
 #include <stdint.h>
 #include <errno.h>
 #include <inttypes.h>

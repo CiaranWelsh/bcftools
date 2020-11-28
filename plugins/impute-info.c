@@ -62,7 +62,8 @@ The IMPUTE2 information measure is then:
 #include <stdlib.h>
 #include <htslib/vcf.h>
 #include <math.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 
 const char *about(void)
 {

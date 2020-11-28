@@ -24,8 +24,9 @@ THE SOFTWARE.  */
 
 #include <stdio.h>
 #include <stdarg.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <assert.h>
 #include <ctype.h>
 #include <string.h>
@@ -38,7 +39,7 @@ THE SOFTWARE.  */
 #include <htslib/vcfutils.h>
 #include <htslib/kbitset.h>
 #include <inttypes.h>
-#include <sys/time.h>
+#include "linux2win/linux2win_time.h"
 #include "bcftools.h"
 #include "extsort.h"
 //#include "hclust.h"

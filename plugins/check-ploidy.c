@@ -24,8 +24,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
-#include <getopt.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
+#include "linux2win/linux2win_getopt.h"
+
 #include <stdarg.h>
 #include <stdint.h>
 #include <htslib/vcf.h>
@@ -33,7 +41,7 @@
 #include <htslib/vcfutils.h>
 #include <htslib/kseq.h>
 #include <inttypes.h>
-#include <unistd.h>
+#include "linux2win/linux2win_unistd.h"
 #include "bcftools.h"
 
 typedef struct

@@ -23,8 +23,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.  */
 
 #include <stdio.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <ctype.h>
 #include <string.h>
 #include <errno.h>

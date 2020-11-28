@@ -23,16 +23,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.  */
 
 #include <stdio.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
-#include <unistd.h>
-#include <getopt.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <assert.h>
 #include <ctype.h>
 #include <string.h>
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <dirent.h>
+#include "linux2win/linux2win_dirent.h"
 #include <math.h>
 #include <inttypes.h>
 #include <htslib/vcf.h>

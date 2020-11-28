@@ -30,7 +30,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <htslib/kstring.h>
 #include <htslib/hts_os.h>
 #include <time.h>

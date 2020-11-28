@@ -23,8 +23,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.  */
 
 #include <stdio.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <string.h>
 #include <assert.h>
 #include <errno.h>
@@ -36,7 +37,7 @@ THE SOFTWARE.  */
 #include <htslib/bgzf.h>
 #include <htslib/tbx.h> // for hts_get_bgzfp()
 #include <htslib/thread_pool.h>
-#include <sys/time.h>
+#include "linux2win/linux2win_time.h"
 #include "bcftools.h"
 
 typedef struct _args_t

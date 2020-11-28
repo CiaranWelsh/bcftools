@@ -24,8 +24,9 @@ DEALINGS IN THE SOFTWARE.  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <htslib/vcf.h>
 #include <htslib/tbx.h>
 #include <sys/stat.h>

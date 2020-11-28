@@ -26,10 +26,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <unistd.h>
+#include "linux2win/linux2win_stat_modes.h"
+#include "linux2win/linux2win_unistd.h"
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_multifit_nlin.h>
 #include <htslib/vcf.h>

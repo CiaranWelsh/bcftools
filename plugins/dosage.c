@@ -26,7 +26,8 @@ DEALINGS IN THE SOFTWARE.  */
 #include <stdlib.h>
 #include <htslib/vcf.h>
 #include <math.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <inttypes.h>
 #include "bcftools.h"
 

@@ -134,7 +134,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <math.h>
 #include <inttypes.h>
 #include <htslib/hts.h>
@@ -145,7 +146,7 @@
 #include <htslib/kseq.h>
 #include <htslib/faidx.h>
 #include <errno.h>
-#include <unistd.h>
+#include "linux2win/linux2win_unistd.h"
 #include <ctype.h>
 #include "bcftools.h"
 #include "filter.h"

@@ -27,11 +27,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include <assert.h>
 #include <errno.h>
-#include <getopt.h>
-#include <unistd.h>
+#include "linux2win/linux2win_getopt.h"
+
+#include "linux2win/linux2win_unistd.h"
 #include <ctype.h>
 #include <htslib/vcf.h>
 #include <htslib/kstring.h>

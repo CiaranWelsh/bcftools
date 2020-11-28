@@ -25,12 +25,19 @@
  */
 
 #include <stdio.h>
-#include <unistd.h>     // for unlink()
+#ifdef HAVE_UNISTD_H
+#   include <unistd.h>
+#else
+#   include "htslib/_unistd.h"
+#endif     // for unlink()
 #include <sys/stat.h>   // for chmod()
+
+#include "linux2win/linux2win_stat_modes.h"
+
 #include <assert.h>
 #include <fcntl.h>
 #ifdef _WIN32
-#include <windows.h>
+#   include <windows.h>
 #endif
 #include "bcftools.h"
 #include "extsort.h"
@@ -174,6 +181,7 @@ static void _buf_flush(extsort_t *es)
             }
             break;
         }
+
         if ( !blk->fd ) error("Error: failed to create a unique temporary file name from %s\n",es->tmp_prefix);
         if ( _chmod(blk->fname, S_IRUSR|S_IWUSR)!=0 ) error("Error: failed to set permissions of the temporary file %s\n",blk->fname);
     #else

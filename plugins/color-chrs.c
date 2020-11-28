@@ -61,7 +61,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <math.h>
 #include <htslib/hts.h>
 #include <htslib/vcf.h>

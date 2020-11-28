@@ -1,8 +1,0 @@
-//
-// Created by Ciaran on 28/11/2020.
-//
-
-#ifndef BCFTOOLS_CMAKE_STAT_MODES_H
-#define BCFTOOLS_CMAKE_STAT_MODES_H
-
-#endif //BCFTOOLS_CMAKE_STAT_MODES_H

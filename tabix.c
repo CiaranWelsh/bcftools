@@ -25,9 +25,16 @@ THE SOFTWARE.  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include "linux2win/linux2win_unistd.h"
 #include <string.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include <htslib/bgzf.h>
 #include <htslib/tbx.h>
 

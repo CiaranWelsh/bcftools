@@ -26,7 +26,8 @@ DEALINGS IN THE SOFTWARE.  */
 #include <stdlib.h>
 #include <htslib/vcf.h>
 #include <htslib/synced_bcf_reader.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 
 bcf_hdr_t *in_hdr, *out_hdr;
 bcf_sr_regions_t *exons;

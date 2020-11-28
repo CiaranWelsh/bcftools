@@ -31,10 +31,9 @@
 */
 
 #include <stdio.h>
-#include <unistd.h>
 #include <assert.h>
-#include <getopt.h>
-#include <math.h>
+#include "linux2win/linux2win_getopt.h"
+#include "linux2win/linux2win_unistd.h"
 #include <inttypes.h>
 #include <htslib/vcf.h>
 #include <htslib/synced_bcf_reader.h>
@@ -44,6 +43,10 @@
 #include "bcftools.h"
 #include "HMM.h"
 #include "rbuf.h"
+
+#include <math.h>
+
+
 
 #define DBG0 0
 
@@ -616,6 +619,7 @@ static double avg_ii_prob(int n, double *mat)
 #define GAUSS_CN3_PK_RRA(smpl)  (&((smpl)->gauss_param[6]))
 #define GAUSS_CN3_PK_RAA(smpl)  (&((smpl)->gauss_param[7]))
 #define GAUSS_CN3_PK_AAA(smpl)  (&((smpl)->gauss_param[8]))
+
 
 static inline double norm_prob(double baf, gauss_param_t *param)
 {

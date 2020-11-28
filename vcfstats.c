@@ -29,8 +29,9 @@ THE SOFTWARE.  */
 */
 #include <stdio.h>
 #include <stdarg.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <assert.h>
 #include <math.h>
 #include <htslib/vcf.h>

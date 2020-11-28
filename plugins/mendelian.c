@@ -27,8 +27,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
-#include <getopt.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
+#include "linux2win/linux2win_getopt.h"
+
 #include <math.h>
 #include <inttypes.h>
 #include <htslib/hts.h>
@@ -37,7 +45,11 @@
 #include <htslib/synced_bcf_reader.h>
 #include <errno.h>
 #include <ctype.h>
-#include <unistd.h>     // for isatty
+#ifdef HAVE_UNISTD_H
+#   include <unistd.h>
+#else
+#   include "htslib/_unistd.h"
+#endif     // for isatty
 #include "../bcftools.h"
 #include "../regidx.h"
 

@@ -26,10 +26,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include <errno.h>
-#include <unistd.h>     // for isatty
+#ifdef HAVE_UNISTD_H
+#   include <unistd.h>
+#else
+#   include "htslib/_unistd.h"
+#endif     // for isatty
 #include <inttypes.h>
 #include <htslib/hts.h>
 #include <htslib/vcf.h>

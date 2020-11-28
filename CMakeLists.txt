@@ -41,14 +41,17 @@ endif ()
 ########################################################
 #   dependencies
 #
+
+add_subdirectory(third_party)
+
 find_package(ZLIB REQUIRED)
 
 find_path(
         HTS_INSTALL_PREFIX
         NAMES
-            lib/${CMAKE_SHARED_LIBRARY_PREFIX}hts${CMAKE_SHARED_LIBRARY_SUFFIX}
-            lib/${CMAKE_SHARED_LIBRARY_PREFIX}htslib${CMAKE_SHARED_LIBRARY_SUFFIX}
-            include/htslib/hts.h
+        lib/${CMAKE_SHARED_LIBRARY_PREFIX}hts${CMAKE_SHARED_LIBRARY_SUFFIX}
+        lib/${CMAKE_SHARED_LIBRARY_PREFIX}htslib${CMAKE_SHARED_LIBRARY_SUFFIX}
+        include/htslib/hts.h
 )
 if (NOT HTS_INSTALL_PREFIX)
     message(WARNING "Could not automatically locate\
@@ -58,8 +61,8 @@ htslib in a system directory (/usr/local or C:/Program Files) it will\
 be found automatically. ")
 endif ()
 
-message(STATUS "${HTS_INSTALL_PREFIX}/lib/cmake/hts" )
-set(CMAKE_PREFIX_PATH  "${CMAKE_PREFIX_PATH}" "${HTS_INSTALL_PREFIX}/lib/cmake/hts" )
+message(STATUS "${HTS_INSTALL_PREFIX}/lib/cmake/hts")
+set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}" "${HTS_INSTALL_PREFIX}/lib/cmake/hts")
 
 find_package(HTS CONFIG REQUIRED)
 
@@ -69,9 +72,9 @@ find_library(
         ${CMAKE_SHARED_LIBRARY_PREFIX}hts${CMAKE_SHARED_LIBRARY_SUFFIX}
         ${CMAKE_SHARED_LIBRARY_PREFIX}htslib${CMAKE_SHARED_LIBRARY_SUFFIX}
         HINTS
-            "${HTS_INSTALL_PREFIX}"
-            "${HTS_INSTALL_PREFIX}/lib"
-            "${HTS_INSTALL_PREFIX}/bin"
+        "${HTS_INSTALL_PREFIX}"
+        "${HTS_INSTALL_PREFIX}/lib"
+        "${HTS_INSTALL_PREFIX}/bin"
 )
 
 find_library(
@@ -80,18 +83,18 @@ find_library(
         ${CMAKE_STATIC_LIBRARY_PREFIX}hts${CMAKE_STATIC_LIBRARY_SUFFIX}
         ${CMAKE_STATIC_LIBRARY_PREFIX}htslib${CMAKE_STATIC_LIBRARY_SUFFIX}
         HINTS
-            "${HTS_INSTALL_PREFIX}"
-            "${HTS_INSTALL_PREFIX}/lib"
-            "${HTS_INSTALL_PREFIX}/bin"
+        "${HTS_INSTALL_PREFIX}"
+        "${HTS_INSTALL_PREFIX}/lib"
+        "${HTS_INSTALL_PREFIX}/bin"
 )
 
 find_path(
         HTS_INCLUDE_DIR
         NAMES
-            htslib/hts.h
+        htslib/hts.h
         HINTS
-            "${HTS_INSTALL_PREFIX}"
-            "${HTS_INSTALL_PREFIX}/include"
+        "${HTS_INSTALL_PREFIX}"
+        "${HTS_INSTALL_PREFIX}/include"
 )
 
 ########################################################
@@ -146,8 +149,8 @@ check_include_file(math.h STDC_HEADERS)
 # _WIN32 is also defined on WSL. */
 check_include_file(unistd.h HAVE_UNISTD_H)
 
-# check to see if we have time.h
-check_include_file(time.h HAVE_TIME_H)
+# check to see if we have sys/time.h
+check_include_file(sys/time.h HAVE_SYS_TIME_H)
 
 # check to see if we have getopt
 check_include_file(getopt.h HAVE_GETOPT_H)
@@ -269,6 +272,7 @@ set(
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>"
         "$<BUILD_INTERFACE:${HTS_INCLUDE_DIR}>"
+        "$<INSTALL_INTERFACE:include>"
 )
 
 set(LINK_TARGETS)
@@ -279,14 +283,21 @@ endif ()
 # build static library
 add_library(bcftools-static STATIC ${BCF_SOURCES})
 target_include_directories(bcftools-static PUBLIC ${INCLUDE_DIRECTORIES})
-target_link_libraries(bcftools-static PUBLIC ${LINK_TARGETS})
+target_link_libraries(bcftools-static PUBLIC ${LINK_TARGETS}
+        linux2win # interface library defined by Linux2Windows
+        )
 target_compile_definitions(bcftools-static PUBLIC BCFTOOLS_STATIC_DEFINE)
 
 # build static library
 add_library(bcftools STATIC ${BCF_SOURCES})
 target_include_directories(bcftools PUBLIC ${INCLUDE_DIRECTORIES})
-target_link_libraries(bcftools PUBLIC ${LINK_TARGETS})
+target_link_libraries(bcftools PUBLIC ${LINK_TARGETS}
+        linux2win # interface library defined by Linux2Windows
+        )
 target_compile_definitions(bcftools PUBLIC BCFTOOLS_EXPORTS)
+
+include(GenerateExportHeader)
+generate_export_header(bcftools)
 
 
 ##########################################################################################

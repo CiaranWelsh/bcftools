@@ -25,14 +25,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <stdarg.h>
 #include <stdint.h>
 #include <htslib/vcf.h>
 #include <htslib/synced_bcf_reader.h>
 #include <htslib/vcfutils.h>
 #include <inttypes.h>
-#include <unistd.h>
+#include "linux2win/linux2win_unistd.h"
 #include <errno.h>
 #include "bcftools.h"
 #include "smpl_ilist.h"

@@ -23,8 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.  */
 
 #include <stdio.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win//linux2win_stat_modes.h"
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <ctype.h>
 #include <string.h>
 #include <errno.h>
@@ -86,7 +88,11 @@ void mkdir_p(const char *fmt, ...)
         if ( !*p ) break;
         char ctmp = *p;
         *p = 0;
-        int ret = mkdir(tmp,S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+#ifdef _WIN32
+        int ret = _mkdir(tmp);
+#else
+        int ret = _mkdir(tmp,S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+#endif
         if ( ret!=0 && errno!=EEXIST ) error("Error creating directory %s: %s\n", path,strerror(errno));
         *p = ctmp;
         while ( *p && *p=='/' ) p++;

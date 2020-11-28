@@ -27,9 +27,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <math.h>
-#include <unistd.h>     // for isatty
+#ifdef HAVE_UNISTD_H
+#   include <unistd.h>
+#else
+#   include "htslib/_unistd.h"
+#endif     // for isatty
 #include <inttypes.h>
 #include <htslib/hts.h>
 #include <htslib/vcf.h>

@@ -26,8 +26,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
-#include <getopt.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
+#include "linux2win/linux2win_getopt.h"
+
 #include <math.h>
 #include <htslib/hts.h>
 #include <htslib/vcf.h>

@@ -22,7 +22,14 @@
     THE SOFTWARE.
 */
 
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include <htslib/hts.h>
 #include <htslib/kstring.h>
 #include <htslib/kseq.h>

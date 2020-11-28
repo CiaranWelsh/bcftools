@@ -26,15 +26,23 @@ DEALINGS IN THE SOFTWARE.  */
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include "linux2win/linux2win_unistd.h"
 #include <ctype.h>
 #include <string.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include <limits.h>
 #include <inttypes.h>
 #include <errno.h>
 #include <sys/stat.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 #include <htslib/sam.h>
 #include <htslib/faidx.h>
 #include <htslib/kstring.h>

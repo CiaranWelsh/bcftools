@@ -24,7 +24,14 @@
 */
 
 #include <ctype.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include "tsv2vcf.h"
 
 tsv_t *tsv_init(const char *str)

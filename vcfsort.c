@@ -25,11 +25,19 @@
  */
 
 #include <stdio.h>
-#include <unistd.h>
-#include <getopt.h>
+#include "linux2win/linux2win_unistd.h"
+#include "linux2win/linux2win_getopt.h"
+
 #include <ctype.h>
 #include <string.h>
+#ifdef HAVE_STRINGS
 #include <strings.h>
+#endif
+
+#ifdef HAVE_STRING
+#include <string.h>
+#endif
+
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>

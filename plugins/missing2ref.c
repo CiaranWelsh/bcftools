@@ -27,7 +27,8 @@ DEALINGS IN THE SOFTWARE.  */
 #include <htslib/vcf.h>
 #include <htslib/vcfutils.h>
 #include <inttypes.h>
-#include <getopt.h>
+#include "linux2win/linux2win_getopt.h"
+
 
 bcf_hdr_t *in_hdr, *out_hdr;
 int32_t *gts = NULL, mgts = 0;

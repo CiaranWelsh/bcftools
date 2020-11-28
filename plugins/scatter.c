@@ -24,8 +24,9 @@
 
  */
 
-#include <getopt.h>
-#include <unistd.h>
+#include "linux2win/linux2win_getopt.h"
+
+#include "linux2win/linux2win_unistd.h"
 #include <ctype.h>
 #include <htslib/synced_bcf_reader.h>
 #include "bcftools.h"
