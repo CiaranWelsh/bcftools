@@ -287,7 +287,6 @@ target_link_libraries(bcftools-static PUBLIC ${LINK_TARGETS}
         linux2win # interface library defined by Linux2Windows
         )
 target_compile_definitions(bcftools-static PUBLIC BCFTOOLS_STATIC_DEFINE)
-set_target_properties(bcftools-static PROPERTIES LINKER_LANGUAGE CXX)
 
 # build static library
 add_library(bcftools STATIC ${BCF_SOURCES})
@@ -296,10 +295,14 @@ target_link_libraries(bcftools PUBLIC ${LINK_TARGETS}
         linux2win # interface library defined by Linux2Windows
         )
 target_compile_definitions(bcftools PUBLIC BCFTOOLS_EXPORTS)
-set_target_properties(bcftools PROPERTIES LINKER_LANGUAGE CXX)
 
 include(GenerateExportHeader)
 generate_export_header(bcftools)
+
+option(BUILD_TESTS "build bcftools tests" OFF)
+if (BUILD_TESTS)
+    add_subdirectory(test)
+endif ()
 
 
 ##########################################################################################
