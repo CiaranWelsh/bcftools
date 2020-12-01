@@ -320,7 +320,31 @@ if (BUILD_TESTS)
     add_subdirectory(test)
 endif ()
 
+install(TARGETS
+            bcftools bcftools-static linux2win
+        EXPORT bcftools
+            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
 
+install(EXPORT
+            bcftools
+        DESTINATION
+            "${CMAKE_INSTALL_LIBDIR}/cmake/bcftools"
+        NAMESPACE
+            bcftools::
+        FILE
+            bcftools-config.cmake
+        )
+
+file(GLOB BCFTOOLS_HEADERS *.h)
+
+install(FILES
+            ${BCFTOOLS_HEADERS}
+        DESTINATION
+            "${CMAKE_INSTALL_INCLUDEDIR}/bcftools"
+        )
 ##########################################################################################
 #       Executables
 #
